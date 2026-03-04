@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors – Black & Gold */
+  --color-gold:           #D4A017;
+  --color-gold-light:     #E8BA3A;
+  --color-gold-dark:      #A87810;
+
+  /* Surface colors */
+  --color-surface:        #0A0A0A;
+  --color-surface-raised: #111111;
+  --color-surface-card:   #1A1A1A;
+  --color-surface-border: #2A2A2A;
+
+  /* Ink colors */
+  --color-ink:            #F5F5F5;
+  --color-ink-muted:      #A0A0A0;
+  --color-ink-faint:      #555555;
+
+  /* Fonts */
+  --font-display: var(--font-barlow), system-ui, sans-serif;
+  --font-sans:    var(--font-inter), system-ui, sans-serif;
+}
+
+:root {
+  --background: #0A0A0A;
+  --foreground: #F5F5F5;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gold gradient text */
+.gradient-text-gold {
+  background: linear-gradient(135deg, #D4A017 0%, #E8BA3A 50%, #F5CC5A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle dot grid overlay */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Gold radial glow */
+.glow-gold {
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(212,160,23,0.18) 0%, transparent 70%);
+}
+
+/* Pricing card pulse animation */
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(212,160,23,0), 0 0 30px rgba(212,160,23,0.08);
+    border-color: rgba(212,160,23,0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(212,160,23,0), 0 0 60px rgba(212,160,23,0.25);
+    border-color: rgba(212,160,23,0.7);
+  }
+}
+
+.gold-pulse {
+  animation: goldPulse 3s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
+::-webkit-scrollbar-thumb { background: #2A2A2A; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3A3A3A; }
+
+/* Testimonials scroll-snap on mobile */
+.snap-container {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.snap-item {
+  scroll-snap-align: start;
+}
+
+/* Trafo marquee animations */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 35s linear infinite;
+}
+.animate-marquee-right {
+  animation: marquee-right 40s linear infinite;
+}
+
+/* Pause on hover */
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
