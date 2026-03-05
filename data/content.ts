@@ -223,7 +223,6 @@ export const footerContent = {
   ],
   legalLinks: [
     { label: "Datenschutz", href: "/datenschutz" },
-    { label: "AGB", href: "/agb" },
     { label: "Impressum", href: "/impressum" },
   ],
   location: "",

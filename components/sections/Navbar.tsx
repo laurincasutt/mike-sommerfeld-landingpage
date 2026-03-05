@@ -49,9 +49,9 @@ export default function Navbar() {
             <Image
               src="/beres-coaching-logo.jpg"
               alt="Beres Coaching"
-              width={120}
-              height={40}
-              className="object-contain h-9 w-auto"
+              width={150}
+              height={50}
+              className="object-contain h-12 w-auto"
             />
           </a>
 

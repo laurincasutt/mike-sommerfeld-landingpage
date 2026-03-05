@@ -13,9 +13,9 @@ export default function Footer() {
               <Image
                 src="/beres-coaching-logo.jpg"
                 alt="Beres Coaching"
-                width={130}
-                height={45}
-                className="object-contain h-10 w-auto"
+                width={160}
+                height={55}
+                className="object-contain h-14 w-auto"
               />
             </div>
             <p className="text-sm text-[#A0A0A0] leading-relaxed max-w-xs">
