@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import GoldButton from "@/components/ui/GoldButton";
 import { siteConfig } from "@/data/content";
 
@@ -44,13 +45,14 @@ export default function Navbar() {
       >
         <nav className="flex items-center justify-between px-5 py-3">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <span className="font-display font-black text-xl text-[#D4A017] uppercase tracking-tight">
-              Mike
-            </span>
-            <span className="font-display font-black text-xl text-[#F5F5F5] uppercase tracking-tight">
-              Coaching
-            </span>
+          <a href="#" className="flex items-center">
+            <Image
+              src="/beres-coaching-logo.jpg"
+              alt="Beres Coaching"
+              width={120}
+              height={40}
+              className="object-contain h-9 w-auto"
+            />
           </a>
 
           {/* Desktop links */}
@@ -95,6 +97,13 @@ export default function Navbar() {
             exit={{ opacity: 0, scale: 0.97 }}
             transition={{ duration: 0.25 }}
           >
+            <Image
+              src="/beres-coaching-logo.jpg"
+              alt="Beres Coaching"
+              width={100}
+              height={32}
+              className="object-contain h-8 w-auto mb-4"
+            />
             {navLinks.map((link) => (
               <button
                 key={link.href}

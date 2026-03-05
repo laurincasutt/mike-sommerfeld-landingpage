@@ -38,7 +38,7 @@ export default function FinalCTA() {
 
           <motion.div
             variants={fadeUpSlow}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col items-center gap-4"
           >
             <GoldButton size="lg" href={siteConfig.paymentLink} external>
               {finalCtaContent.cta}

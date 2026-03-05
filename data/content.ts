@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: "Mike Sommerfeld Coaching",
-  tagline: "Dein persönlicher Bodybuilding-Coach – direkt auf WhatsApp",
+  tagline: "Dein persönlicher WhatsApp-Coach – direkt auf WhatsApp",
   description:
-    "Professionelles Bodybuilding-Coaching per WhatsApp. Individueller Trainings- und Ernährungsplan, tägliche Check-ins und direkte Antworten von Mike Sommerfeld. Für nur 149 CHF/Monat.",
+    "Professionelles Coaching per WhatsApp. Individueller Trainings- und Ernährungsplan, tägliche Check-ins und direkte Betreuung. Für nur 149 €/Monat.",
   price: "149",
-  currency: "CHF",
+  currency: "€",
   paymentLink: "https://buy.stripe.com/9B68wQ3uIc1j4oc7k07kc0q",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mike-coaching.ch",
   instagram: "https://www.instagram.com/mikethebadass",
@@ -12,11 +12,11 @@ export const siteConfig = {
 };
 
 export const heroContent = {
-  eyebrow: "WhatsApp Bodybuilding Coaching",
+  eyebrow: "WhatsApp-Coaching",
   headline: "Endlich der Körper,\nden du verdient hast.",
   subheadline:
-    "Kein generischer Online-Plan. Kein leerer Support. Direkte Betreuung von Mike – täglich, persönlich, auf WhatsApp.",
-  cta: "Jetzt starten – 149 CHF/Monat",
+    "Kein generischer Online-Plan. Kein leerer Support. Direkte Betreuung – täglich, persönlich, auf WhatsApp.",
+  cta: "Jetzt starten – 149 €/Monat",
   ctaSub: "Monatlich kündbar · Keine Bindung · Sofortiger Zugang",
 };
 
@@ -24,7 +24,7 @@ export const proofBarStats = [
   { value: 150, suffix: "+", label: "Zufriedene Athleten" },
   { value: 20, suffix: "+", label: "Jahre Erfahrung" },
   { value: 98, suffix: "%", label: "Weiterempfehlung" },
-  { value: 3, suffix: "×", label: "Arnold Classic Sieger" },
+  { value: 1, suffix: "×", label: "Arnold Classic Sieger" },
 ];
 
 export const benefitsContent = {
@@ -35,37 +35,37 @@ export const benefitsContent = {
       icon: "Dumbbell",
       title: "Individueller Trainingsplan",
       description:
-        "Kein Copy-Paste. Dein Plan basiert auf deinem Körper, deinem Level und deinen Zielen – und wird laufend angepasst.",
+        "Kein Copy-Paste. Dein Plan basiert auf deinem Körper, deinem Level und deinen Zielen und wird laufend angepasst.",
     },
     {
       icon: "Utensils",
       title: "Persönlicher Ernährungsplan",
       description:
-        "Mike erstellt dir einen Ernährungsplan, der zu deinem Alltag passt. Realistisch, umsetzbar, effektiv.",
+        "Dir wird ein Ernährungsplan erstellt, der zu deinem Alltag passt. Realistisch, umsetzbar, effektiv.",
     },
     {
       icon: "MessageCircle",
-      title: "Täglicher WhatsApp-Support",
+      title: "24/7 WhatsApp-Support",
       description:
-        "Direkte Antworten von Mike – kein Ticket-System, keine KI. Echte Betreuung in wenigen Stunden.",
+        "Dein Coach ist rund um die Uhr erreichbar – alle Fragen zu Ernährung, Training, Regeneration und Supplements werden beantwortet.",
     },
     {
       icon: "Camera",
       title: "Wöchentliche Check-ins",
       description:
-        "Schick deine Fortschrittsfotos. Mike analysiert, adjustiert und gibt dir konkretes Feedback jede Woche.",
+        "Jede Woche teilst du deine Daten und Fortschritte. Alles wird analysiert, adjustiert und du erhältst konkretes Feedback.",
     },
     {
       icon: "Target",
       title: "Klare Zieldefinition",
       description:
-        "Aufbau, Definition oder Wettkampfvorbereitung – Mike kennt den direkten Weg und geht ihn mit dir.",
+        "Muskelaufbau, Fettverlust, Kraft oder allgemeine Fitness. Alle diese Ziele sind erreichbar und werden direkt betreut.",
     },
     {
       icon: "TrendingUp",
       title: "Kontinuierliche Anpassung",
       description:
-        "Dein Körper gewöhnt sich an alles. Mike passt deinen Plan proaktiv an – damit du immer Fortschritt machst.",
+        "Dein Körper gewöhnt sich an alles. Dein Plan wird proaktiv angepasst, damit du immer Fortschritte machst.",
     },
   ],
 };
@@ -78,19 +78,19 @@ export const howItWorksContent = {
       number: "01",
       title: "Jetzt anmelden",
       description:
-        "Wähle dein Abo und schliesse die Zahlung sicher über Stripe ab. Dauert weniger als 2 Minuten.",
+        "Klicke auf den Link und schliesse das Abo sicher über Stripe ab. Dauert weniger als 2 Minuten.",
     },
     {
       number: "02",
       title: "Onboarding per WhatsApp",
       description:
-        "Mike meldet sich direkt bei dir. Du füllst ein kurzes Fragebogen aus – Ziele, Level, Alltag. Alles über WhatsApp.",
+        "Nach dem Abschluss erhältst du direkt eine Erstnachricht via WhatsApp. Fülle einen kurzen Fragebogen aus – Ziele, Level, Alltag. Alles über WhatsApp.",
     },
     {
       number: "03",
       title: "Transformation starten",
       description:
-        "Du bekommst deinen persönlichen Plan. Ab jetzt hast du Mike immer dabei – bereit, dich voranzubringen.",
+        "Du bekommst deine persönlichen Pläne. Ab jetzt hast du einen Personal Trainer 24/7 an deiner Seite.",
     },
   ],
 };
@@ -98,19 +98,18 @@ export const howItWorksContent = {
 export const aboutContent = {
   eyebrow: "Dein Coach",
   headline: "Mike Sommerfeld",
-  subheadline: "Pro Bodybuilder · Arnold Classic Sieger · Team Badass",
+  subheadline: "Pro Bodybuilder · Arnold Classic Sieger · Team Beres",
   bio: [
-    "Ich trainiere seit über 20 Jahren und habe in dieser Zeit nicht nur meinen eigenen Körper transformiert – ich habe über 150 Athleten dabei geholfen, ihre Ziele zu erreichen.",
-    "Als mehrfacher Arnold Classic Sieger und Olympia-Teilnehmer weiss ich genau, was es braucht: konsequente Arbeit, smarte Ernährung und ein Coach, der wirklich für dich da ist.",
-    "Mit meinem #TEAMBADASS WhatsApp-Coaching erhältst du echte, persönliche Betreuung – keine Algorithmen, keine generierten Pläne. Nur du, dein Ziel und ich.",
+    "Ich habe über 150 Personen dabei geholfen, ihre körperlichen und mentalen Ziele zu erreichen.",
+    "Als Arnold Classic Sieger und zweitplatzierter Olympia-Teilnehmer weiss ich genau, was es braucht: klare Disziplin, auf den Alltag abgestimmte Ernährung und Betreuung, die immer dann da ist, wenn man sie benötigt.",
+    "Mit dem #TEAMBERES WhatsApp-Coaching erhältst du rund um die Uhr persönliche Betreuung – perfekt auf dich und deine Ziele abgestimmt. Nur du und dein Ziel.",
   ],
   achievements: [
-    "Arnold Classic Sieger (mehrfach)",
-    "Olympia 2025 Teilnehmer (Las Vegas)",
+    "Arnold Classic Sieger",
+    "Olympia-Teilnehmer (zweitplatzierter)",
     "IFBB Pro Card Inhaber",
-    "20+ Jahre Trainingserfahrung",
-    "150+ betreute Athleten (#TEAMBADASS)",
-    "Zertifizierter Ernährungsberater",
+    "20+ Jahre Trainings- und Coaching-Erfahrung",
+    "100+ betreute Athleten",
   ],
   // Stage photos for the gallery grid
   stagePhotos: [
@@ -127,17 +126,17 @@ export const videoContent = {
   eyebrow: "Sieh selbst",
   headline: "Hör direkt von Mike.",
   description:
-    "In diesen kurzen Videos erklärt Mike, wie sein Coaching funktioniert und welche Ergebnisse du erwarten kannst.",
+    "In diesem kurzen Video erfährst du, wie das WhatsApp-Coaching funktioniert und welche Ergebnisse du erwarten kannst.",
 };
 
 export const trafoContent = {
-  eyebrow: "#TEAMBADASS",
+  eyebrow: "#TEAMBERES",
   headline: "Echte Resultate.\nEchte Athleten.",
   subheadline:
-    "Über 150 Athleten haben mit Mike transformiert. Das sind ihre Ergebnisse – unbearbeitet, echt, inspirierend.",
+    "Über 150 Athleten haben bereits transformiert. Das sind ihre Ergebnisse – unbearbeitet, echt, inspirierend.",
   images: Array.from({ length: 17 }, (_, i) => ({
     src: `/trafos/trafo-${String(i + 1).padStart(2, "0")}.png`,
-    alt: `#TEAMBADASS Transformation ${i + 1}`,
+    alt: `#TEAMBERES Transformation ${i + 1}`,
   })),
 };
 
@@ -145,16 +144,16 @@ export const pricingContent = {
   eyebrow: "Investment",
   headline: "Ein Preis. Alles inklusive.",
   price: "149",
-  currency: "CHF",
+  currency: "€",
   period: "pro Monat",
   features: [
     "Individueller Trainingsplan (regelmässig aktualisiert)",
     "Persönlicher Ernährungsplan",
-    "Täglicher WhatsApp-Support mit Mike",
+    "Supplement-Plan",
+    "24/7 WhatsApp-Support",
     "Wöchentliche Check-ins & Feedback",
-    "Profi-Wettkampfberatung auf Anfrage",
+    "Dein Coach ist 24/7 für alle Fragen erreichbar – Training, Ernährung, Supplements, Recovery & mehr",
     "Anpassung bei Plateaus & Verletzungen",
-    "Direkter Zugang zu Mike – kein Mittelsmann",
     "Monatlich kündbar – keine Mindestlaufzeit",
   ],
   cta: "Jetzt starten",
@@ -165,7 +164,7 @@ export const pricingContent = {
     "Stripe-gesichert",
     "DSGVO-konform",
   ],
-  note: "Nach dem Kauf nimmt Mike innerhalb von 24 Stunden Kontakt via WhatsApp auf.",
+  note: "Nach dem Kauf erhältst du innerhalb von 5 Minuten eine Erstnachricht via WhatsApp.",
 };
 
 export const faqContent = {
@@ -175,42 +174,32 @@ export const faqContent = {
     {
       question: "Für wen ist dieses Coaching geeignet?",
       answer:
-        "Das Coaching richtet sich an alle, die ernsthaft Muskeln aufbauen, Körperfett reduzieren oder sich auf einen Wettkampf vorbereiten möchten – egal ob Einsteiger oder Fortgeschrittene. Mike passt den Ansatz individuell an dein Level an.",
+        "Das Coaching richtet sich an alle, die ernsthaft Muskeln aufbauen, Körperfett reduzieren oder ihre Fitness verbessern möchten – egal ob Einsteiger oder Fortgeschrittene. Das Coaching passt den Ansatz individuell an dein Level an.",
     },
     {
       question: "Wie läuft das Coaching über WhatsApp ab?",
       answer:
-        "Nach dem Kauf erhältst du Mikes WhatsApp-Nummer. Du füllst ein kurzes Onboarding-Formular aus, und Mike erstellt deinen ersten Plan. Danach hast du direkten Draht zu ihm: Fragen, Fotos, Updates – alles über WhatsApp.",
+        "Nach dem Kauf erhältst du direkt eine Erstnachricht via WhatsApp. Du füllst ein kurzes Onboarding-Formular aus, deine ersten Pläne werden direkt erstellt. Danach hast du 24/7 Betreuung – Fragen, Fotos, Updates, alles über WhatsApp.",
     },
     {
-      question: "Wie schnell antwortet Mike?",
+      question: "Wie schnell kommen Antworten?",
       answer:
-        "Mike antwortet in der Regel innerhalb von wenigen Stunden. Du wirst nie tagelang auf eine Antwort warten müssen.",
+        "Antworten erfolgen in der Regel innerhalb von wenigen Minuten. Du wirst nie lange auf eine klare Anweisung oder Antwort warten müssen.",
     },
     {
       question: "Kann ich monatlich kündigen?",
       answer:
-        "Ja. Das Abo ist monatlich kündbar – ohne Mindestlaufzeit oder versteckte Kosten. Du kannst jederzeit über dein Stripe-Kundenportal kündigen.",
-    },
-    {
-      question: "Was passiert nach dem Kauf?",
-      answer:
-        "Du wirst direkt zu einer Bestätigungsseite weitergeleitet. Innerhalb von 24 Stunden meldet sich Mike bei dir über WhatsApp und das Onboarding beginnt.",
+        "Ja. Das Abo ist monatlich kündbar. Du kannst es jederzeit mit einer einfachen E-Mail kündigen.",
     },
     {
       question: "Ist das Coaching auch für Frauen geeignet?",
       answer:
-        "Absolut. Mike betreut sowohl Männer als auch Frauen. Die Pläne werden individuell auf deine Ziele und deinen Körper abgestimmt.",
+        "Absolut. Das Coaching betreut sowohl Männer als auch Frauen. Die Pläne werden individuell auf deine Ziele und deinen Körper abgestimmt.",
     },
     {
       question: "Ich bin Anfänger – ist das trotzdem sinnvoll?",
       answer:
-        "Gerade für Anfänger ist professionelles Coaching besonders wertvoll. Mike hilft dir, von Anfang an die richtigen Grundlagen zu legen und teure Fehler zu vermeiden.",
-    },
-    {
-      question: "Welche Zahlungsmethoden werden akzeptiert?",
-      answer:
-        "Die Zahlung erfolgt sicher über Stripe. Akzeptiert werden Kredit- und Debitkarten (Visa, Mastercard, Amex) sowie weitere gängige Zahlungsmethoden.",
+        "Gerade für Anfänger ist professionelles Coaching besonders wertvoll. Das Coaching hilft dir, von Anfang an die richtigen Grundlagen zu legen und teure Fehler zu vermeiden.",
     },
   ],
 };
@@ -218,13 +207,13 @@ export const faqContent = {
 export const finalCtaContent = {
   headline: "Bereit für deine\nTransformation?",
   subheadline:
-    "Über 150 Athleten aus dem #TEAMBADASS haben mit Mike ihre Ziele erreicht. Du könntest der Nächste sein.",
-  cta: "Jetzt starten – 149 CHF/Monat",
+    "Über 150 Athleten haben ihre Ziele bereits erreicht. Du könntest der Nächste sein.",
+  cta: "Jetzt starten",
   ctaSub: "Monatlich kündbar · Kein Risiko · Sofortiger Zugang",
 };
 
 export const footerContent = {
-  tagline: "Professionelles Bodybuilding-Coaching direkt auf WhatsApp. #TEAMBADASS",
+  tagline: "Professionelles WhatsApp-Coaching. #TEAMBERES",
   quickLinks: [
     { label: "Vorteile", href: "#benefits" },
     { label: "So funktionierts", href: "#how-it-works" },
@@ -237,6 +226,6 @@ export const footerContent = {
     { label: "AGB", href: "/agb" },
     { label: "Impressum", href: "/impressum" },
   ],
-  location: "🇨🇭 Schweiz",
-  copyright: `© ${new Date().getFullYear()} Mike Sommerfeld Coaching. Alle Rechte vorbehalten.`,
+  location: "",
+  copyright: `© 2026 Spectra Media GmbH. Alle Rechte vorbehalten.`,
 };

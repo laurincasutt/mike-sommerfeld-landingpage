@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Trophy } from "lucide-react";
@@ -9,6 +10,8 @@ import { aboutContent, siteConfig } from "@/data/content";
 import { staggerContainer, fadeUpVariants, slideInLeft, slideInRight, viewportOnce } from "@/lib/animations";
 
 export default function AboutMike() {
+  const [selectedPhoto, setSelectedPhoto] = useState("/mike-about.png");
+
   return (
     <section id="about" className="py-24 lg:py-32 bg-[#0A0A0A]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,8 +29,8 @@ export default function AboutMike() {
               <div className="absolute -inset-3 rounded-3xl opacity-25" style={{ background: "radial-gradient(ellipse 80% 80% at 50% 50%, rgba(212,160,23,0.5) 0%, transparent 70%)" }} />
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-[#D4A017]/20">
                 <Image
-                  src="/mike-about.png"
-                  alt="Mike Sommerfeld – Olympia 2025"
+                  src={selectedPhoto}
+                  alt="Mike Sommerfeld"
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -48,11 +51,16 @@ export default function AboutMike() {
               {aboutContent.stagePhotos.slice(0, 6).map((photo, i) => (
                 <motion.div
                   key={photo.src}
-                  className="relative aspect-square rounded-xl overflow-hidden border border-[#2A2A2A] hover:border-[#D4A017]/40 transition-colors duration-300"
+                  className={`relative aspect-square rounded-xl overflow-hidden border transition-colors duration-300 cursor-pointer ${
+                    selectedPhoto === photo.src
+                      ? "border-[#D4A017] ring-2 ring-[#D4A017]/40"
+                      : "border-[#2A2A2A] hover:border-[#D4A017]/40"
+                  }`}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={viewportOnce}
                   transition={{ delay: i * 0.08, duration: 0.4 }}
+                  onClick={() => setSelectedPhoto(photo.src)}
                 >
                   <Image
                     src={photo.src}
@@ -111,7 +119,7 @@ export default function AboutMike() {
 
             <motion.div variants={fadeUpVariants}>
               <GoldButton href={siteConfig.paymentLink} external>
-                Jetzt mit Mike starten
+                Jetzt starten
               </GoldButton>
             </motion.div>
           </motion.div>

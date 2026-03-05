@@ -40,8 +40,17 @@ export default function HowItWorks() {
           whileInView="show"
           viewport={viewportOnce}
         >
-          {/* Connecting dashed line (desktop only) */}
+          {/* Connecting dashed line (desktop only) – background */}
           <div className="hidden lg:block absolute top-10 left-[calc(16.67%+2rem)] right-[calc(16.67%+2rem)] h-px border-t-2 border-dashed border-[#2A2A2A] z-0" />
+
+          {/* Animated gold progress line */}
+          <motion.div
+            className="hidden lg:block absolute top-10 left-[calc(16.67%+2rem)] right-[calc(16.67%+2rem)] h-0.5 bg-[#D4A017] origin-left z-0"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
+          />
 
           {howItWorksContent.steps.map((step, index) => (
             <motion.div

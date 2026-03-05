@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { footerContent, siteConfig } from "@/data/content";
 import { Instagram, Mail } from "lucide-react";
 
@@ -8,9 +9,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="font-display font-black text-2xl text-[#D4A017] uppercase">Mike</span>
-              <span className="font-display font-black text-2xl text-[#F5F5F5] uppercase">Coaching</span>
+            <div className="mb-4">
+              <Image
+                src="/beres-coaching-logo.jpg"
+                alt="Beres Coaching"
+                width={130}
+                height={45}
+                className="object-contain h-10 w-auto"
+              />
             </div>
             <p className="text-sm text-[#A0A0A0] leading-relaxed max-w-xs">
               {footerContent.tagline}
@@ -71,7 +77,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-[#555555]">{footerContent.location}</p>
+            {footerContent.location && (
+              <p className="mt-6 text-sm text-[#555555]">{footerContent.location}</p>
+            )}
           </div>
         </div>
 

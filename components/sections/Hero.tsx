@@ -78,11 +78,11 @@ export default function Hero() {
           </motion.p>
 
           {/* CTA */}
-          <motion.div variants={fadeUpSlow} className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <GoldButton size="lg" href={siteConfig.paymentLink} external>
+          <motion.div variants={fadeUpSlow} className="flex flex-col items-start gap-4">
+            <GoldButton size="md" href={siteConfig.paymentLink} external>
               {heroContent.cta}
             </GoldButton>
-            <p className="text-xs text-[#555555]">{heroContent.ctaSub}</p>
+            <p className="text-xs text-[#555555] whitespace-nowrap">{heroContent.ctaSub}</p>
           </motion.div>
         </motion.div>
       </motion.div>
