@@ -22,6 +22,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   title: {
     default: "Mike Sommerfeld Coaching – WhatsApp Bodybuilding Coach Schweiz",
     template: "%s | Mike Sommerfeld Coaching",
