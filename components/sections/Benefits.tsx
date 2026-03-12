@@ -54,11 +54,11 @@ export default function Benefits() {
           whileInView="show"
           viewport={viewportOnce}
         >
-          {content.items.map((item) => {
+          {content.items.map((item, i) => {
             const Icon = iconMap[item.icon] ?? Dumbbell;
             return (
               <motion.div
-                key={item.title}
+                key={i}
                 variants={fadeUpVariants}
                 className="group relative p-6 rounded-2xl bg-[#1A1A1A] border border-[#2A2A2A] hover:border-[#D4A017]/40 transition-colors duration-300 overflow-hidden"
               >

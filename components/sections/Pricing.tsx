@@ -61,8 +61,8 @@ export default function Pricing() {
 
             {/* Features */}
             <ul className="space-y-4 mb-10">
-              {content.features.map((feat) => (
-                <li key={feat} className="flex items-start gap-3">
+              {content.features.map((feat, i) => (
+                <li key={i} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-[#D4A017]/15 border border-[#D4A017]/30 flex items-center justify-center shrink-0 mt-0.5">
                     <Check className="w-3 h-3 text-[#D4A017]" />
                   </div>
@@ -84,7 +84,7 @@ export default function Pricing() {
               {content.trustBadges.map((badge, idx) => {
                 const Icon = trustIcons[idx] ?? Shield;
                 return (
-                  <div key={badge} className="flex items-center gap-2">
+                  <div key={idx} className="flex items-center gap-2">
                     <Icon className="w-4 h-4 text-[#D4A017] shrink-0" />
                     <span className="text-xs text-[#A0A0A0]">{badge}</span>
                   </div>

@@ -20,8 +20,8 @@ export default function ProofBar() {
           whileInView="show"
           viewport={viewportOnce}
         >
-          {stats.map((stat) => (
-            <motion.div key={stat.label} variants={fadeUpVariants} className="flex flex-col items-center gap-2">
+          {stats.map((stat, i) => (
+            <motion.div key={i} variants={fadeUpVariants} className="flex flex-col items-center gap-2">
               <div className="font-display font-black text-4xl sm:text-5xl text-[#D4A017]">
                 <CountUp end={stat.value} suffix={stat.suffix} />
               </div>

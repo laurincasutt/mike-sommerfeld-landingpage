@@ -45,7 +45,7 @@ export default function FAQ() {
             const isOpen = openIndex === index;
             return (
               <motion.div
-                key={item.question}
+                key={index}
                 variants={fadeUpVariants}
                 initial="hidden"
                 whileInView="show"
