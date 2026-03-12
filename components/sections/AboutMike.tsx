@@ -6,11 +6,15 @@ import Image from "next/image";
 import { Trophy } from "lucide-react";
 import SectionBadge from "@/components/ui/SectionBadge";
 import GoldButton from "@/components/ui/GoldButton";
-import { aboutContent, siteConfig } from "@/data/content";
+import { aboutContent, aboutContentEN, siteConfig } from "@/data/content";
 import { staggerContainer, fadeUpVariants, slideInLeft, slideInRight, viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/language";
 
 export default function AboutMike() {
   const [selectedPhoto, setSelectedPhoto] = useState("/mike-about.png");
+  const { lang } = useLanguage();
+  const content = lang === "en" ? aboutContentEN : aboutContent;
+  const ctaLabel = lang === "en" ? "Start now" : "Jetzt starten";
 
   return (
     <section id="about" className="py-24 lg:py-32 bg-[#0A0A0A]">
@@ -48,7 +52,7 @@ export default function AboutMike() {
 
             {/* Stage photo grid */}
             <div className="grid grid-cols-3 gap-2 mt-3">
-              {aboutContent.stagePhotos.slice(0, 6).map((photo, i) => (
+              {content.stagePhotos.slice(0, 6).map((photo, i) => (
                 <motion.div
                   key={photo.src}
                   className={`relative aspect-square rounded-xl overflow-hidden border transition-colors duration-300 cursor-pointer ${
@@ -82,22 +86,22 @@ export default function AboutMike() {
             viewport={viewportOnce}
           >
             <motion.div variants={fadeUpVariants} className="mb-5">
-              <SectionBadge>{aboutContent.eyebrow}</SectionBadge>
+              <SectionBadge>{content.eyebrow}</SectionBadge>
             </motion.div>
             <motion.h2
               variants={fadeUpVariants}
               className="font-display font-black text-4xl sm:text-5xl text-[#F5F5F5] leading-none mb-2"
             >
-              {aboutContent.headline}
+              {content.headline}
             </motion.h2>
             <motion.p
               variants={fadeUpVariants}
               className="text-[#D4A017] font-semibold text-base mb-8"
             >
-              {aboutContent.subheadline}
+              {content.subheadline}
             </motion.p>
 
-            {aboutContent.bio.map((para, i) => (
+            {content.bio.map((para, i) => (
               <motion.p
                 key={i}
                 variants={fadeUpVariants}
@@ -109,7 +113,7 @@ export default function AboutMike() {
 
             {/* Achievements */}
             <motion.ul variants={fadeUpVariants} className="space-y-3 mt-8 mb-10">
-              {aboutContent.achievements.map((item) => (
+              {content.achievements.map((item) => (
                 <li key={item} className="flex items-center gap-3">
                   <Trophy className="w-4 h-4 text-[#D4A017] shrink-0" />
                   <span className="text-sm text-[#F5F5F5]">{item}</span>
@@ -119,7 +123,7 @@ export default function AboutMike() {
 
             <motion.div variants={fadeUpVariants}>
               <GoldButton href={siteConfig.paymentLink} external>
-                Jetzt starten
+                {ctaLabel}
               </GoldButton>
             </motion.div>
           </motion.div>

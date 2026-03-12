@@ -2,10 +2,14 @@
 
 import { motion } from "framer-motion";
 import SectionBadge from "@/components/ui/SectionBadge";
-import { howItWorksContent } from "@/data/content";
+import { howItWorksContent, howItWorksContentEN } from "@/data/content";
 import { fadeUpVariants, staggerContainer, staggerFast, viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/language";
 
 export default function HowItWorks() {
+  const { lang } = useLanguage();
+  const content = lang === "en" ? howItWorksContentEN : howItWorksContent;
+
   return (
     <section id="how-it-works" className="py-24 lg:py-32 bg-[#111111]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,13 +22,13 @@ export default function HowItWorks() {
           viewport={viewportOnce}
         >
           <motion.div variants={fadeUpVariants} className="flex justify-center mb-5">
-            <SectionBadge>{howItWorksContent.eyebrow}</SectionBadge>
+            <SectionBadge>{content.eyebrow}</SectionBadge>
           </motion.div>
           <motion.h2
             variants={fadeUpVariants}
             className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#F5F5F5] leading-none"
           >
-            {howItWorksContent.headline.split("\n").map((line, i) => (
+            {content.headline.split("\n").map((line, i) => (
               <span key={i} className={`block ${i === 1 ? "gradient-text-gold" : ""}`}>
                 {line}
               </span>
@@ -52,7 +56,7 @@ export default function HowItWorks() {
             transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
           />
 
-          {howItWorksContent.steps.map((step, index) => (
+          {content.steps.map((step, index) => (
             <motion.div
               key={step.number}
               variants={fadeUpVariants}

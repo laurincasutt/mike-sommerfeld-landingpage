@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 import { Check, Shield, Lock, CreditCard, Globe } from "lucide-react";
 import SectionBadge from "@/components/ui/SectionBadge";
 import GoldButton from "@/components/ui/GoldButton";
-import { pricingContent, siteConfig } from "@/data/content";
+import { pricingContent, pricingContentEN, siteConfig } from "@/data/content";
 import { fadeUpVariants, scaleIn, staggerContainer, viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/language";
 
-const trustIconMap: Record<string, React.ElementType> = {
-  "Monatlich kündbar": Globe,
-  "SSL-verschlüsselt": Lock,
-  "Stripe-gesichert": CreditCard,
-  "DSGVO-konform": Shield,
-};
+// Map by badge index position (order is the same in both languages)
+const trustIcons: React.ElementType[] = [Globe, Lock, CreditCard, Shield];
 
 export default function Pricing() {
+  const { lang } = useLanguage();
+  const content = lang === "en" ? pricingContentEN : pricingContent;
+
   return (
     <section id="pricing" className="py-24 lg:py-32 bg-[#111111]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,13 +27,13 @@ export default function Pricing() {
           viewport={viewportOnce}
         >
           <motion.div variants={fadeUpVariants} className="flex justify-center mb-5">
-            <SectionBadge>{pricingContent.eyebrow}</SectionBadge>
+            <SectionBadge>{content.eyebrow}</SectionBadge>
           </motion.div>
           <motion.h2
             variants={fadeUpVariants}
             className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#F5F5F5] leading-none"
           >
-            {pricingContent.headline}
+            {content.headline}
           </motion.h2>
         </motion.div>
 
@@ -50,18 +50,18 @@ export default function Pricing() {
             <div className="text-center mb-10">
               <div className="flex items-end justify-center gap-2">
                 <span className="font-display font-black text-7xl sm:text-8xl gradient-text-gold leading-none">
-                  {pricingContent.price}
+                  {content.price}
                 </span>
                 <div className="mb-3">
-                  <span className="text-2xl font-display font-black text-[#D4A017]">{pricingContent.currency}</span>
-                  <p className="text-sm text-[#A0A0A0]">{pricingContent.period}</p>
+                  <span className="text-2xl font-display font-black text-[#D4A017]">{content.currency}</span>
+                  <p className="text-sm text-[#A0A0A0]">{content.period}</p>
                 </div>
               </div>
             </div>
 
             {/* Features */}
             <ul className="space-y-4 mb-10">
-              {pricingContent.features.map((feat) => (
+              {content.features.map((feat) => (
                 <li key={feat} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-[#D4A017]/15 border border-[#D4A017]/30 flex items-center justify-center shrink-0 mt-0.5">
                     <Check className="w-3 h-3 text-[#D4A017]" />
@@ -74,15 +74,15 @@ export default function Pricing() {
             {/* CTA */}
             <div className="flex flex-col items-center gap-3">
               <GoldButton size="lg" href={siteConfig.paymentLink} external className="w-full justify-center">
-                {pricingContent.cta}
+                {content.cta}
               </GoldButton>
-              <p className="text-xs text-[#555555]">{pricingContent.ctaSub}</p>
+              <p className="text-xs text-[#555555]">{content.ctaSub}</p>
             </div>
 
             {/* Trust badges */}
             <div className="grid grid-cols-2 gap-3 mt-8 pt-8 border-t border-[#2A2A2A]">
-              {pricingContent.trustBadges.map((badge) => {
-                const Icon = trustIconMap[badge] ?? Shield;
+              {content.trustBadges.map((badge, idx) => {
+                const Icon = trustIcons[idx] ?? Shield;
                 return (
                   <div key={badge} className="flex items-center gap-2">
                     <Icon className="w-4 h-4 text-[#D4A017] shrink-0" />
@@ -92,7 +92,7 @@ export default function Pricing() {
               })}
             </div>
 
-            <p className="mt-6 text-xs text-[#555555] text-center">{pricingContent.note}</p>
+            <p className="mt-6 text-xs text-[#555555] text-center">{content.note}</p>
           </div>
         </motion.div>
       </div>

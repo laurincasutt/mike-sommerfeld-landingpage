@@ -5,8 +5,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import GoldButton from "@/components/ui/GoldButton";
-import { heroContent, siteConfig } from "@/data/content";
+import { heroContent, heroContentEN, siteConfig } from "@/data/content";
 import { staggerContainer, fadeUpSlow } from "@/lib/animations";
+import { useLanguage } from "@/lib/language";
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -16,6 +17,8 @@ export default function Hero() {
   });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+  const { lang } = useLanguage();
+  const content = lang === "en" ? heroContentEN : heroContent;
 
   return (
     <section
@@ -53,7 +56,7 @@ export default function Hero() {
           <motion.div variants={fadeUpSlow} className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-widest border border-[#D4A017]/30 bg-[#D4A017]/10 text-[#E8BA3A]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D4A017] animate-pulse" />
-              {heroContent.eyebrow}
+              {content.eyebrow}
             </span>
           </motion.div>
 
@@ -62,7 +65,7 @@ export default function Hero() {
             variants={fadeUpSlow}
             className="font-display font-black text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-none mb-6"
           >
-            {heroContent.headline.split("\n").map((line, i) => (
+            {content.headline.split("\n").map((line, i) => (
               <span key={i} className={`block ${i === 1 ? "gradient-text-gold" : "text-[#F5F5F5]"}`}>
                 {line}
               </span>
@@ -74,15 +77,15 @@ export default function Hero() {
             variants={fadeUpSlow}
             className="text-lg sm:text-xl text-[#A0A0A0] leading-relaxed mb-10 max-w-xl"
           >
-            {heroContent.subheadline}
+            {content.subheadline}
           </motion.p>
 
           {/* CTA */}
           <motion.div variants={fadeUpSlow} className="flex flex-col items-start gap-4">
             <GoldButton size="md" href={siteConfig.paymentLink} external>
-              {heroContent.cta}
+              {content.cta}
             </GoldButton>
-            <p className="text-xs text-[#555555] whitespace-nowrap">{heroContent.ctaSub}</p>
+            <p className="text-xs text-[#555555] whitespace-nowrap">{content.ctaSub}</p>
           </motion.div>
         </motion.div>
       </motion.div>

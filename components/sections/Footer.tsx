@@ -1,8 +1,15 @@
+"use client";
+
 import Image from "next/image";
-import { footerContent, siteConfig } from "@/data/content";
+import { footerContent, footerContentEN, siteConfig } from "@/data/content";
 import { Instagram, Mail } from "lucide-react";
+import { useLanguage } from "@/lib/language";
 
 export default function Footer() {
+  const { lang } = useLanguage();
+  const content = lang === "en" ? footerContentEN : footerContent;
+  const legalHeading = lang === "en" ? "Legal" : "Rechtliches";
+
   return (
     <footer className="bg-[#0A0A0A] border-t border-[#2A2A2A]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -19,7 +26,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-sm text-[#A0A0A0] leading-relaxed max-w-xs">
-              {footerContent.tagline}
+              {content.tagline}
             </p>
             <div className="flex items-center gap-4 mt-6">
               <a
@@ -47,7 +54,7 @@ export default function Footer() {
               Navigation
             </h3>
             <ul className="space-y-3">
-              {footerContent.quickLinks.map((link) => (
+              {content.quickLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
@@ -63,10 +70,10 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h3 className="text-sm font-semibold text-[#F5F5F5] uppercase tracking-widest mb-5">
-              Rechtliches
+              {legalHeading}
             </h3>
             <ul className="space-y-3">
-              {footerContent.legalLinks.map((link) => (
+              {content.legalLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
@@ -77,15 +84,15 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            {footerContent.location && (
-              <p className="mt-6 text-sm text-[#555555]">{footerContent.location}</p>
+            {content.location && (
+              <p className="mt-6 text-sm text-[#555555]">{content.location}</p>
             )}
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-[#1A1A1A]">
           <p className="text-xs text-[#555555] text-center">
-            {footerContent.copyright}
+            {content.copyright}
           </p>
         </div>
       </div>

@@ -6,21 +6,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import GoldButton from "@/components/ui/GoldButton";
-import { siteConfig } from "@/data/content";
-
-const navLinks = [
-  { label: "Vorteile", href: "#benefits" },
-  { label: "So funktionierts", href: "#how-it-works" },
-  { label: "Über Mike", href: "#about" },
-  { label: "Preise", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-];
+import { siteConfig, navLinksDE, navLinksEN } from "@/data/content";
+import { useLanguage } from "@/lib/language";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const { lang, setLang } = useLanguage();
+
+  const navLinks = lang === "en" ? navLinksEN : navLinksDE;
+  const ctaLabel = lang === "en" ? "Start now" : "Jetzt starten";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -76,10 +73,30 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CTA */}
-          <div className="hidden lg:block">
+          {/* Desktop right: language toggle + CTA */}
+          <div className="hidden lg:flex items-center gap-4">
+            {/* Language toggle */}
+            <div className="flex items-center gap-1.5 text-xs font-medium">
+              <button
+                onClick={() => setLang("de")}
+                className={`transition-colors duration-200 cursor-pointer ${
+                  lang === "de" ? "text-[#D4A017]" : "text-[#A0A0A0] hover:text-[#F5F5F5]"
+                }`}
+              >
+                DE
+              </button>
+              <span className="text-[#3A3A3A]">|</span>
+              <button
+                onClick={() => setLang("en")}
+                className={`transition-colors duration-200 cursor-pointer ${
+                  lang === "en" ? "text-[#D4A017]" : "text-[#A0A0A0] hover:text-[#F5F5F5]"
+                }`}
+              >
+                EN
+              </button>
+            </div>
             <GoldButton size="sm" href={siteConfig.paymentLink} external>
-              Jetzt starten
+              {ctaLabel}
             </GoldButton>
           </div>
 
@@ -121,8 +138,28 @@ export default function Navbar() {
               </button>
             ))}
             <GoldButton size="lg" href={siteConfig.paymentLink} external className="mt-4">
-              Jetzt starten
+              {ctaLabel}
             </GoldButton>
+            {/* Mobile language toggle */}
+            <div className="flex items-center gap-2 text-sm font-medium mt-2">
+              <button
+                onClick={() => setLang("de")}
+                className={`transition-colors duration-200 cursor-pointer ${
+                  lang === "de" ? "text-[#D4A017]" : "text-[#A0A0A0]"
+                }`}
+              >
+                DE
+              </button>
+              <span className="text-[#3A3A3A]">|</span>
+              <button
+                onClick={() => setLang("en")}
+                className={`transition-colors duration-200 cursor-pointer ${
+                  lang === "en" ? "text-[#D4A017]" : "text-[#A0A0A0]"
+                }`}
+              >
+                EN
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

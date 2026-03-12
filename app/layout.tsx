@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
+import { LanguageProvider } from "@/lib/language";
 import { siteConfig } from "@/data/content";
 
 const barlow = Barlow({
@@ -102,9 +103,11 @@ fbq('track','PageView');`}
         </noscript>
       </head>
       <body className="bg-surface text-ink antialiased">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

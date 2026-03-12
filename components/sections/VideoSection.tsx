@@ -4,12 +4,18 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Play, Volume2, VolumeX } from "lucide-react";
 import SectionBadge from "@/components/ui/SectionBadge";
-import { videoContent } from "@/data/content";
+import { videoContent, videoContentEN } from "@/data/content";
 import { staggerContainer, fadeUpVariants, staggerFast, viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/language";
 
-const videos = [
+const videosDE = [
   { src: "/videos/mike-ad-1.mp4", label: "Warum Mike?" },
   { src: "/videos/mike-ad-2.mp4", label: "Wie funktionierts?" },
+];
+
+const videosEN = [
+  { src: "/videos/mike-ad-1.mp4", label: "Why Mike?" },
+  { src: "/videos/mike-ad-2.mp4", label: "How does it work?" },
 ];
 
 function VideoCard({ src, label, index }: { src: string; label: string; index: number }) {
@@ -87,6 +93,10 @@ function VideoCard({ src, label, index }: { src: string; label: string; index: n
 }
 
 export default function VideoSection() {
+  const { lang } = useLanguage();
+  const content = lang === "en" ? videoContentEN : videoContent;
+  const videos = lang === "en" ? videosEN : videosDE;
+
   return (
     <section id="video" className="py-24 lg:py-32 bg-[#111111]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,19 +107,19 @@ export default function VideoSection() {
           viewport={viewportOnce}
         >
           <motion.div variants={fadeUpVariants} className="flex justify-center mb-5">
-            <SectionBadge>{videoContent.eyebrow}</SectionBadge>
+            <SectionBadge>{content.eyebrow}</SectionBadge>
           </motion.div>
           <motion.h2
             variants={fadeUpVariants}
             className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#F5F5F5] leading-none text-center mb-4"
           >
-            <span className="gradient-text-gold">{videoContent.headline}</span>
+            <span className="gradient-text-gold">{content.headline}</span>
           </motion.h2>
           <motion.p
             variants={fadeUpVariants}
             className="text-center text-[#A0A0A0] max-w-lg mx-auto mb-14"
           >
-            {videoContent.description}
+            {content.description}
           </motion.p>
         </motion.div>
 

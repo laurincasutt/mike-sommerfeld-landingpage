@@ -1,19 +1,24 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionBadge from "@/components/ui/SectionBadge";
 import GoldButton from "@/components/ui/GoldButton";
-import { trafoContent, siteConfig } from "@/data/content";
+import { trafoContent, trafoContentEN, siteConfig } from "@/data/content";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/language";
 
 export default function Transformations() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { lang } = useLanguage();
+  const content = lang === "en" ? trafoContentEN : trafoContent;
+  const ctaLabel = lang === "en" ? "Your transformation starts with one click." : "Deine Transformation beginnt mit einem Klick.";
+  const ctaButtonLabel = lang === "en" ? "Join #TEAMBADASS now" : "Jetzt Teil von #TEAMBADASS werden";
 
   // Split images into two rows for the infinite marquee effect
-  const row1 = trafoContent.images.slice(0, 9);
-  const row2 = trafoContent.images.slice(9, 17);
+  const row1 = content.images.slice(0, 9);
+  const row2 = content.images.slice(9, 17);
 
   return (
     <section id="transformations" className="py-24 lg:py-32 bg-[#111111] overflow-hidden">
@@ -27,20 +32,20 @@ export default function Transformations() {
           viewport={viewportOnce}
         >
           <motion.div variants={fadeUpVariants} className="flex justify-center mb-5">
-            <SectionBadge>{trafoContent.eyebrow}</SectionBadge>
+            <SectionBadge>{content.eyebrow}</SectionBadge>
           </motion.div>
           <motion.h2
             variants={fadeUpVariants}
             className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#F5F5F5] leading-none mb-5"
           >
-            {trafoContent.headline.split("\n").map((line, i) => (
+            {content.headline.split("\n").map((line, i) => (
               <span key={i} className={`block ${i === 0 ? "gradient-text-gold" : ""}`}>
                 {line}
               </span>
             ))}
           </motion.h2>
           <motion.p variants={fadeUpVariants} className="text-[#A0A0A0] max-w-xl mx-auto">
-            {trafoContent.subheadline}
+            {content.subheadline}
           </motion.p>
         </motion.div>
       </div>
@@ -94,10 +99,10 @@ export default function Transformations() {
         transition={{ duration: 0.6 }}
       >
         <p className="text-[#A0A0A0] mb-6 text-sm">
-          Deine Transformation beginnt mit einem Klick.
+          {ctaLabel}
         </p>
         <GoldButton href={siteConfig.paymentLink} size="lg" external>
-          Jetzt Teil von #TEAMBADASS werden
+          {ctaButtonLabel}
         </GoldButton>
       </motion.div>
     </section>

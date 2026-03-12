@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { Dumbbell, Utensils, MessageCircle, Camera, Target, TrendingUp } from "lucide-react";
 import SectionBadge from "@/components/ui/SectionBadge";
-import { benefitsContent } from "@/data/content";
+import { benefitsContent, benefitsContentEN } from "@/data/content";
 import { fadeUpVariants, staggerContainer, staggerFast, viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/language";
 
 const iconMap: Record<string, React.ElementType> = {
   Dumbbell,
@@ -16,6 +17,9 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export default function Benefits() {
+  const { lang } = useLanguage();
+  const content = lang === "en" ? benefitsContentEN : benefitsContent;
+
   return (
     <section id="benefits" className="py-24 lg:py-32 bg-[#0A0A0A] bg-dot-grid">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,13 +32,13 @@ export default function Benefits() {
           viewport={viewportOnce}
         >
           <motion.div variants={fadeUpVariants} className="flex justify-center mb-5">
-            <SectionBadge>{benefitsContent.eyebrow}</SectionBadge>
+            <SectionBadge>{content.eyebrow}</SectionBadge>
           </motion.div>
           <motion.h2
             variants={fadeUpVariants}
             className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#F5F5F5] leading-none"
           >
-            {benefitsContent.headline.split("\n").map((line, i) => (
+            {content.headline.split("\n").map((line, i) => (
               <span key={i} className={`block ${i === 1 ? "gradient-text-gold" : ""}`}>
                 {line}
               </span>
@@ -50,7 +54,7 @@ export default function Benefits() {
           whileInView="show"
           viewport={viewportOnce}
         >
-          {benefitsContent.items.map((item) => {
+          {content.items.map((item) => {
             const Icon = iconMap[item.icon] ?? Dumbbell;
             return (
               <motion.div

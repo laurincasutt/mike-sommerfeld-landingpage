@@ -2,10 +2,14 @@
 
 import { motion } from "framer-motion";
 import GoldButton from "@/components/ui/GoldButton";
-import { finalCtaContent, siteConfig } from "@/data/content";
+import { finalCtaContent, finalCtaContentEN, siteConfig } from "@/data/content";
 import { staggerContainer, fadeUpSlow, viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/language";
 
 export default function FinalCTA() {
+  const { lang } = useLanguage();
+  const content = lang === "en" ? finalCtaContentEN : finalCtaContent;
+
   return (
     <section className="relative py-28 lg:py-40 overflow-hidden bg-[#0A0A0A]">
       <div className="absolute inset-0 glow-gold pointer-events-none" />
@@ -22,7 +26,7 @@ export default function FinalCTA() {
             variants={fadeUpSlow}
             className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-[#F5F5F5] leading-none mb-6"
           >
-            {finalCtaContent.headline.split("\n").map((line, i) => (
+            {content.headline.split("\n").map((line, i) => (
               <span key={i} className={`block ${i === 1 ? "gradient-text-gold" : ""}`}>
                 {line}
               </span>
@@ -33,7 +37,7 @@ export default function FinalCTA() {
             variants={fadeUpSlow}
             className="text-lg text-[#A0A0A0] max-w-xl mx-auto mb-10"
           >
-            {finalCtaContent.subheadline}
+            {content.subheadline}
           </motion.p>
 
           <motion.div
@@ -41,9 +45,9 @@ export default function FinalCTA() {
             className="flex flex-col items-center gap-4"
           >
             <GoldButton size="lg" href={siteConfig.paymentLink} external>
-              {finalCtaContent.cta}
+              {content.cta}
             </GoldButton>
-            <p className="text-xs text-[#555555]">{finalCtaContent.ctaSub}</p>
+            <p className="text-xs text-[#555555]">{content.ctaSub}</p>
           </motion.div>
         </motion.div>
       </div>

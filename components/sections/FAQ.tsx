@@ -4,11 +4,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import SectionBadge from "@/components/ui/SectionBadge";
-import { faqContent } from "@/data/content";
-import { fadeUpVariants, staggerContainer, staggerFast, viewportOnce } from "@/lib/animations";
+import { faqContent, faqContentEN } from "@/data/content";
+import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/language";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { lang } = useLanguage();
+  const content = lang === "en" ? faqContentEN : faqContent;
 
   return (
     <section id="faq" className="py-24 lg:py-32 bg-[#0A0A0A]">
@@ -22,13 +25,13 @@ export default function FAQ() {
           viewport={viewportOnce}
         >
           <motion.div variants={fadeUpVariants} className="flex justify-center mb-5">
-            <SectionBadge>{faqContent.eyebrow}</SectionBadge>
+            <SectionBadge>{content.eyebrow}</SectionBadge>
           </motion.div>
           <motion.h2
             variants={fadeUpVariants}
             className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#F5F5F5] leading-none"
           >
-            {faqContent.headline.split("\n").map((line, i) => (
+            {content.headline.split("\n").map((line, i) => (
               <span key={i} className={`block ${i === 1 ? "gradient-text-gold" : ""}`}>
                 {line}
               </span>
@@ -37,19 +40,16 @@ export default function FAQ() {
         </motion.div>
 
         {/* Accordion */}
-        <motion.div
-          className="space-y-3"
-          variants={staggerFast}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-        >
-          {faqContent.items.map((item, index) => {
+        <div className="space-y-3">
+          {content.items.map((item, index) => {
             const isOpen = openIndex === index;
             return (
               <motion.div
                 key={item.question}
                 variants={fadeUpVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-40px" }}
                 className={`rounded-2xl border transition-colors duration-200 overflow-hidden ${
                   isOpen
                     ? "border-[#D4A017]/40 bg-[#1A1A1A]"
@@ -92,7 +92,7 @@ export default function FAQ() {
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
